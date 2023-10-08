@@ -11,12 +11,20 @@ h2 {
 
 button {
   position: absolute;
-  left: 47%;
+  left: 47.5%;
   width: 100px;
   height: 50px;
   border-radius: 20px;
   border: none;
   cursor: pointer;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 47.5%;
+  opacity: 0;
 }
 
 .player {
@@ -68,4 +76,14 @@ button {
 .btn-new {
   position: absolute;
   top: 20%;
+}
+
+.current-score {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.current-title {
+  font-size: 30px;
+  margin-bottom: 15px;
 }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>주사위 게임</title>
+  </head>
+  <body>
+    <!-- 플레이어 점수 표시 -->
+    <p>플레이어 1 점수: <span id="player1Score">0</span></p>
+    <p>플레이어 2 점수: <span id="player2Score">0</span></p>
+
+    <!-- 주사위 및 버튼 -->
+    <p>현재 주사위 숫자: <span id="currentDiceValue">0</span></p>
+    <button id="rollDice">주사위 던지기</button>
+    <button id="hold">홀드</button>
+
+    <script>
+      let player1Score = 0;
+      let player2Score = 0;
+      let currentPlayer = 1;
+      let currentRoundScore = 0;
+      let gameOver = false;
+
+      const player1ScoreDisplay = document.getElementById("player1Score");
+      const player2ScoreDisplay = document.getElementById("player2Score");
+      const currentDiceValueDisplay =
+        document.getElementById("currentDiceValue");
+
+      function rollDice() {
+        if (!gameOver) {
+          const diceValue = Math.floor(Math.random() * 6) + 1;
+          currentDiceValueDisplay.textContent = diceValue;
+
+          if (diceValue === 1 || diceValue === 2) {
+            currentRoundScore = 0;
+            switchPlayer();
+          } else {
+            currentRoundScore += diceValue;
+          }
+        }
+      }
+
+      function switchPlayer() {
+        if (currentPlayer === 1) {
+          player1Score += currentRoundScore;
+          player1ScoreDisplay.textContent = player1Score;
+          currentPlayer = 2;
+        } else {
+          player2Score += currentRoundScore;
+          player2ScoreDisplay.textContent = player2Score;
+          currentPlayer = 1;
+        }
+
+        currentRoundScore = 0;
+        currentDiceValueDisplay.textContent = "0";
+
+        if (player1Score >= 50 || player2Score >= 50) {
+          gameOver = true;
+          alert(`플레이어 ${currentPlayer}가 승리했습니다!`);
+        }
+      }
+
+      function hold() {
+        if (!gameOver) {
+          switchPlayer();
+        }
+      }
+
+      document.getElementById("rollDice").addEventListener("click", rollDice);
+      document.getElementById("hold").addEventListener("click", hold);
+    </script>
+  </body>
+</html>
