@@ -36,6 +36,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: all 0.75s;
 }
 
 .player-0 {
