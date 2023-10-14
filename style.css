@@ -1,12 +1,17 @@
 body {
-  background-color: #c6365f;
+  background: #0d1118;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
   position: relative;
+  width: 70%;
 }
 
 h2 {
@@ -15,7 +20,7 @@ h2 {
 
 button {
   position: absolute;
-  left: 47.5%;
+  left: 46%;
   width: 100px;
   height: 50px;
   border-radius: 20px;
@@ -27,28 +32,37 @@ img {
   width: 100px;
   height: 100px;
   position: absolute;
-  left: 47.5%;
+  left: 46%;
   opacity: 0;
 }
 
 .player {
   flex: 50%;
   width: 410px;
-  height: 510px;
-  margin-top: 45px;
+  height: 580px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   transition: all 0.75s;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.player-0 {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.player-1 {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .player--winner {
   background-color: #2f2f2f;
 }
 .player--active {
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .player--active .player-0__title {
@@ -63,14 +77,6 @@ img {
   opacity: 1;
 }
 
-/* .player-0 {
-  background: red;
-}
-
-.player-1 {
-  background: blue;
-} */
-
 .current {
   margin-top: 5rem;
   width: 208px;
@@ -79,9 +85,10 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #c6365f;
+  background-color: #01040a;
   color: white;
   font-size: 20px;
+  border-radius: 20px;
 }
 
 .player-score {
@@ -91,16 +98,21 @@ img {
 .btn-roll {
   position: absolute;
   bottom: 20%;
+
+  width: auto;
 }
 
 .btn-hold {
   position: absolute;
+
   bottom: 5%;
 }
 
 .btn-new {
   position: absolute;
   top: 20%;
+
+  width: auto;
 }
 
 .current-score {
