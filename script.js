@@ -23,6 +23,7 @@ const init = () => {
   score1Element.textContent = 0;
   currentScore0.textContent = 0;
   currentScore1.textContent = 0;
+  diceImg.style.opacity = 0;
   playing = true;
 };
 
@@ -31,6 +32,8 @@ const switchPlayer = () => {
   document.querySelector(`.current-score-${activePlayer}`).textContent = 0;
   currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
+  player0.classList.toggle("player--active");
+  player1.classList.toggle("player--active");
 };
 
 const rollDice = () => {
@@ -52,15 +55,19 @@ const rollDice = () => {
 
 const scoreHold = () => {
   if (playing) {
-    //1.Add the current score to the player's score
     scores[activePlayer] += currentScore;
-    //Display the score to the current player's scores
     document.querySelector(`.player${activePlayer}Score`).textContent =
       scores[activePlayer];
   }
   if (scores[activePlayer] >= 50) {
     playing = false;
     diceImg.style.opacity = 0;
+    document
+      .querySelector(`.player-${activePlayer}`)
+      .classList.add("player--winner");
+    document
+      .querySelector(`.player-${activePlayer}`)
+      .classList.remove("player--active");
   } else {
     switchPlayer();
   }

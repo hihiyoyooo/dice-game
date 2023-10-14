@@ -1,3 +1,7 @@
+body {
+  background-color: #c6365f;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -37,15 +41,35 @@ img {
   align-items: center;
   flex-direction: column;
   transition: all 0.75s;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-.player-0 {
-  background: #d9b0be;
+.player--winner {
+  background-color: #2f2f2f;
+}
+.player--active {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.player--active .player-0__title {
+  font-weight: 700;
+}
+
+.player--active .player-score {
+  font-weight: 400;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+/* .player-0 {
+  background: red;
 }
 
 .player-1 {
-  background: #b97c9c;
-}
+  background: blue;
+} */
 
 .current {
   margin-top: 5rem;
